@@ -1,0 +1,475 @@
+/*Home page */
+/* General Body Styles */
+body {
+    /* Fallback color in case the image can't be loaded */
+    background-color: #F9FAFB;
+    color: #1F2937; /* gray-800 */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Add a dark overlay to the background image for better readability of the hero text */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* App Container */
+#app-container {
+    min-height: 100vh;
+}
+
+/* Reusable Container */
+.container {
+    width: 100%;
+    margin-left: 3rem;
+    margin-right: auto;
+    padding-left: 1.5rem; /* px-6 */
+    padding-right: 1.5rem; /* px-6 */
+}
+
+/* Responsive container widths */
+@media (min-width: 640px) { .container { max-width: 640px; } }
+@media (min-width: 768px) { .container { max-width: 768px; } }
+@media (min-width: 1024px) { .container { max-width: 1024px; } }
+@media (min-width: 1280px) { .container { max-width: 1280px; } }
+
+/* Header */
+header {
+    background: linear-gradient(to bottom, #112022, #2c3e50); /* New gradient background */
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* shadow-sm */
+    /* Make the header sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+header .container {
+    padding-top: 1rem;    /* py-4 */
+    padding-bottom: 1rem; /* py-4 */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700;  /* font-bold */
+    color: #ffffff;    /* text-white */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 0.8rem; /* This creates a space between the image and the text */
+}
+.logo-image{
+    width: 25px;
+    height: 25px;
+    /* This filter turns a black icon white */
+    filter: brightness(0) invert(1);
+}
+
+.nav-links {
+    display: none; /* hidden by default */
+}
+
+.nav-links a {
+    color: #E5E7EB; /* text-gray-200 */
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #ffffff; /* hover:text-white */
+}
+
+/* Main Content */
+main .container {
+    padding-top: 4rem;    /* py-16 */
+    padding-bottom: 4rem; /* py-16 */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border-radius: 0.5rem; /* rounded-lg */
+    font-weight: 600;      /* font-semibold */
+    font-size: 1.125rem;   /* text-lg */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-lg */
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #16771e; /* bg-indigo-600 */
+    color: #ffffff;           /* text-white */
+}
+
+.btn-primary:hover {
+    background-color: #18b022; /* hover:bg-indigo-700 */
+}
+
+.btn-secondary {
+    background-color: #1da945;   /* bg-white */
+    color: #ffffff;             /* text-indigo-600 */
+    border: 1px solid #1da945;  /* border border-indigo-600 */
+    height: 30px;
+    width: 100px;
+    border-radius: 4px;
+    margin-left: 20px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-secondary:hover {
+    background-color: #95f7a5; /* hover:bg-indigo-50 */
+    color: #1F2937;
+}
+
+/* Header Button Specific */
+.header-button .btn-primary {
+    padding: 0.5rem 1.25rem; /* px-5 py-2 */
+    font-size: 1rem;
+}
+
+.search-clear{
+    display: flex;
+    justify-content: flex-end;    
+    gap: 0.5rem;
+    
+}
+
+.search-bar{
+    width: 350px;
+    height: 30px;
+    border-radius: 4px;
+    justify-content: center;
+
+}
+
+/* Hero Section */
+#hero {
+    top: 40%;
+    display: grid;
+    gap: 3rem; /* gap-12 */
+    align-items: center;
+}
+
+.hero-text {
+    text-align: center;
+    
+}
+
+.hero-text h1 {
+    font-size: 2.0rem; /* text-4xl */
+    font-weight: 700;   /* font-extrabold */
+    color: #ffffff;    /* text-gray-900 */
+    line-height: 1.2;
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.hero-text h1 br {
+    display: none;
+}
+
+.hero-text p {
+    font-size: 1.125rem; /* text-lg */
+    color: #fbfcfc;      /* text-gray-600 */
+    margin-bottom: 2rem; /* mb-8 */
+    max-width: 36rem;    /* max-w-lg */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* space-x-4 */
+}
+
+.hero-image img {
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* shadow-2xl */
+    width: 100%;
+    max-width: 28rem; /* max-w-md */
+    margin: auto;
+}
+
+.social-sidebar {
+  /* Position the sidebar fixed on the left side of the screen */
+  position: fixed;
+  top: 70%;
+  left: 0;
+  transform: translateY(-50%);
+
+  /* Style the container for a clean layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.social-sidebar a {
+  /* Style each social link */
+  display: block;
+  margin: 15px 15px; /* Add space between icons */
+  color: rgb(222, 219, 219); /* Change icon color to white */
+  width: 40px; /* Set the width of the icon */
+  height: 40px; /* Set the height of the icon */
+  transition: transform 0.3s ease; /* Add a smooth hover animation */
+}
+
+.social-sidebar a:hover {
+  /* Hover effect */
+  transform: scale(1.2); /* Scale the icon up slightly */
+}
+
+.social-sidebar svg {
+  /* Ensure the SVG icon fills its container */
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive Styles (Desktop) */
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 2rem; /* space-x-8 */
+    }
+
+    main .container {
+        padding-top: 6rem;    /* md:py-24 */
+        padding-bottom: 6rem; /* md:py-24 */
+    }
+
+    #hero {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .hero-text h1 {
+        font-size: 3.75rem; /* md:text-6xl */
+    }
+
+    .hero-text h1 br {
+        display: block;
+    }
+
+    .hero-text p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+    
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    
+    .social-icons {
+        margin-top: 0;
+    }
+}
+/* home page end*/
+/* ------------------------------------*/
+
+
+
+/* About page start*/
+.main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 50px;
+            box-sizing: border-box;
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            
+        }
+
+        .about-us-section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 50px;
+            margin-left: 30px;
+        }
+
+        .about-heading {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 50px 0 20px 0;
+        }
+
+        .about-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .team-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin: 50px 0 0 0;
+        }
+
+        .team-heading {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0 0 0 200px;
+        }
+
+        .team-cards-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+
+        .team-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #3b5998;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .profile-icon.john-doe { background-color: #3b5998; }
+        .profile-icon.celina-thomas { background-color: #00acee; }
+        .profile-icon.mike-tysen { background-color: #cd201f; }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .member-details {
+            font-size: 0.9rem;
+            margin: 5px 0 15px 0;
+        }
+
+        .member-position {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 8px 16px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+/* End of About */
+/*-----------------------------------------------------------------------------------------*/
+
+/* Contact Page*/
+.contact-container {
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            color: #ffffff;
+            margin-top: 15%;
+            margin-left: 35%
+        }
+
+        .contact-info {
+            margin-right: 50px;
+        }
+
+        .contact-heading {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-subheading {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .contact-form-wrapper {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #008080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #005f5f;
+        }
+/* End of Contact */
+/*-----------------------------------------------------------------------------------------*/
