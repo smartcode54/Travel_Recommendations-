@@ -22,7 +22,7 @@
         <ul class="nav-links">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./AboutUs.html">About</a></li>
-            <li><a href="./contactus.html">Contact</a></li>
+            <li><a href="./contactus.html">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -56,18 +56,18 @@
                     <p class="contact-subheading">Get in touch</p>
                 </div>
                 <div class="contact-form-wrapper">
-                    <form action="#">
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message here..."></textarea>
+                            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Submit</button>
                     </form>
@@ -99,7 +99,43 @@
                     </svg></a>
             </div>
         </main>
+        <script>
+                    // Get the form element from the HTML using its ID
+        const contactForm = document.getElementById('contact-form');
 
+        // Add an event listener to the form that waits for the 'submit' event
+        contactForm.addEventListener('submit', function(event) {
+            
+            // Prevent the default form submission behavior, which reloads the page
+            event.preventDefault(); 
+
+            // 1. Get the values from the input boxes
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Basic validation to check if fields are empty
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill out all fields.');
+                return; // Stop the function if validation fails
+            }
+
+            // 2. Create the message string to be shown in the alert
+            const alertMessage = `
+                Thank you for your message, ${name}!
+
+                --- Form Details ---
+                Email: ${email}
+                Message: ${message}
+            `;
+
+            // 3. Show the alert with the information
+            alert(alertMessage);
+
+            // Optional: Clear the form fields after successful submission
+            contactForm.reset();
+        });
+        </script>
 
 
     </div>
