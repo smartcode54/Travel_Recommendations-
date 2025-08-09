@@ -1,0 +1,306 @@
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1b2a;
+            color: #e0eaff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            background-image: linear-gradient(to right, rgba(13, 27, 42, 0.432), rgba(74, 104, 135, 0.459)), url('https://cdn.pixabay.com/photo/2022/11/07/20/23/new-york-7577186_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #2c3e50;
+            padding: 5px 20px; /* 🟢 ลดค่า padding บน-ล่างลง 🟢 */
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+           
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .search-box {
+            width: 600px; /* Example width, adjust as needed */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .search-input {
+            flex-grow: 1;       /* This lets the input fill the space in the search-box */
+            padding: 10px;      /* Increased from 12px to make it taller */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;    /* Increased from 16px for bigger text */
+            outline: none;
+            border-right: none;
+            color: #2c3e50;
+            margin-right: 20px;
+        }
+
+        .search-btn {
+            padding: 12px 20px;
+            border: none;
+            background-color: #0077b6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px; /* 🟡 ปรับปุ่มค้นหาให้เป็นสี่เหลี่ยมตรงกลาง 🟡 */
+            transition: background-color 0.3s;
+            margin-right: 20px;
+        }
+        .search-btn:hover {
+            background-color: #023e8a;
+        }
+
+        .clear-btn {
+            padding: 12px 20px;
+            border: none;
+            background-color: #6c757d; /* สีเทาเพื่อให้แตกต่าง */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px; /* ทำให้มุมขวาโค้ง */
+            transition: background-color 0.3s;
+        }
+
+        .clear-btn:hover {
+            background-color: #5a6268;
+        }
+
+        #result-info {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: left; /* ปรับการจัดเรียงข้อความ */
+        }
+
+        /* 🟡 ปรับจาก display:grid เป็น block เพื่อให้รองรับหัวข้อ 🟡 */
+        .search-results {
+            text-align: left;
+        }
+
+        /* 🟢 เพิ่มสไตล์สำหรับหัวข้อของกลุ่ม (e.g., "Cities", "Temples") 🟢 */
+        .search-results h2 {
+            font-size: 1.5rem;
+            color: #005f73;
+            border-bottom: 2px solid #00a896;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* 🟢 เพิ่มคลาสใหม่สำหรับจัดเรียงการ์ดโดยเฉพาะ 🟢 */
+        .card-grid {
+            display: block;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .result-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+            display: flex; /* เพิ่มเพื่อให้เนื้อหาเต็มความสูง */
+            flex-direction: column; /* จัดเรียงเนื้อหาแนวตั้ง */
+            margin-bottom: 20px;
+        }
+
+        .result-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+       
+        .card-content {
+            padding: 15px;
+            flex-grow: 1; /* ทำให้เนื้อหาส่วนนี้ขยายเต็มพื้นที่ที่เหลือ */
+        }
+        .card-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #005f73;
+        }
+        .card-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        .card-time {
+            font-size: 0.9rem; /* 14.4px */
+            color: #555;
+            background-color: #f0f4f8;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 15px; /* Add space between description and time */
+            text-align: center;
+        }
+
+       /* 🟢 ADD THIS NEW CSS RULE FOR THE BUTTON 🟢 */
+        .visit-btn {
+            display: inline-block;
+            margin-top: 15px; /* Add space above the button */
+            padding: 8px 16px;
+            background-color: #0077b6; /* Same color as the search button */
+            color: white;
+            text-align: center;
+            text-decoration: none; /* Remove underline from the link */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .visit-btn:hover {
+            background-color: #023e8a;
+        }
+        .social-sidebar {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            border-right: 1px solid white;
+            z-index: 900;
+        }
+
+        .social-sidebar a {
+            display: block;
+            margin: 15px 15px;
+            color: white;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-sidebar a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-sidebar svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 100px 50px 50px 0;
+            box-sizing: border-box;
+            gap: 450px;
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 500px;
+            margin-top: 15%;
+        }
+        .search-results {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 70vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 800px;
+        }
+        
+        .visit-button {
+            background-color: #38a169;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            align-self: flex-start; /* Prevent button from stretching */
+            font-size: 1rem;
+        }
+
+        .visit-button:hover {
+            background-color: #2f855a;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links, .search-container {
+                width: 100%;
+                justify-content: center;
+            }
+            .main-content-wrapper {
+                flex-direction: column;
+                padding: 100px 20px 20px 20px;
+                
+            }
+            .hero-section {
+                margin-bottom: 2rem;
+                max-width: 100%;
+                text-align: center;
+            }
+            .search-results {
+                width: 100%;
+                max-height: none;
+                
+            }
+            .social-sidebar {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid white;
+                width: 100%;
+                justify-content: center;
+            }
+        }
